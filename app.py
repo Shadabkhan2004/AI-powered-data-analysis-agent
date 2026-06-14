@@ -3,7 +3,7 @@ from pathlib import Path
 
 db_path = Path("data/mydatabase.db")
 if not db_path.exists():
-    subprocess.run(["python", "setup_db.py"], check=True)
+    subprocess.run(["python3", "setup_db.py"], check=True)
 
 import streamlit as st
 from agent.graph import agent
