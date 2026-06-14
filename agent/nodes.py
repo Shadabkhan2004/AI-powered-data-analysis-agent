@@ -43,6 +43,7 @@ RULES:
 - If no limit is specified, set limit to null
 - If no sort is specified, set sort_by and sort_order to null
 - If no time range is specified, set time_range to null
+- target_metric must be a raw column name only, never include aggregation functions e.g. use "Discount" not "AVG(Discount)"
 - table_name is always "superstore"
 
 User question: {user_question}"""
@@ -204,7 +205,7 @@ def interpret_results(state: AgentState):
   try:
     response = llm.invoke(prompt).content
     response = response.replace("`", "")
-    
+
     return {"interpretation": response}
   except Exception as e:
     return {"error_message": str(e)}
