@@ -21,7 +21,7 @@ user_question = st.text_input("Ask a question about the data")
 if st.button("Run") and user_question:
     with st.spinner("Thinking..."):
         result = agent.invoke({"user_question": user_question})
-
+  
     if result.get("error_message"):
         st.error(result["error_message"])
     else:
@@ -29,7 +29,7 @@ if st.button("Run") and user_question:
         st.write(result["interpretation"])
 
         st.subheader("Data")
-        st.dataframe(result["query_results"])
+        st.dataframe(pd.DataFrame(result["query_results"]), hide_index=True)
 
         if result.get("visualization_figure"):
             st.subheader("Chart")
