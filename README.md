@@ -56,6 +56,7 @@ streamlit run app.py
 
 ## Demo
 ![Explanation Image](assets/photo1.png)
+
 ![Chart Image](assets/photo2.png)
 
 ## Example Questions
