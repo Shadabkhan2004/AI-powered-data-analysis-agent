@@ -1,3 +1,4 @@
 .env
-data/
 dataanalysisagent/
+__pycache__/
+*.db
