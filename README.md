@@ -47,7 +47,7 @@ pip install -r requirements.txt
 OPENAI_API_KEY=your_api_key_here
 ```
 
-5. Set up the database — run the notebook `notebook/notebook1.ipynb` to load the Superstore CSV into SQLite
+5. The database is created automatically on first run.
 
 6. Run the app
 ```bash

@@ -1,5 +1,13 @@
 import streamlit as st
 from agent.graph import agent
+import subprocess
+import os
+from pathlib import Path
+
+db_path = Path("data/mydatabase.db")
+if not db_path.exists():
+    subprocess.run(["python", "setup_db.py"], check=True)
+
 
 st.set_page_config(page_title="Superstore Sales Agent", layout="wide")
 st.title("Superstore Sales Agent")
