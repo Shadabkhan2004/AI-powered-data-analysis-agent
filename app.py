@@ -1,9 +1,13 @@
-import subprocess
 from pathlib import Path
+import pandas as pd
+import sqlite3
 
 db_path = Path("data/mydatabase.db")
 if not db_path.exists():
-    subprocess.run(["python3", "setup_db.py"], check=True)
+    df = pd.read_csv("data/superstore.csv", encoding='latin1')
+    conn = sqlite3.connect(db_path)
+    df.to_sql(name="superstore", con=conn, if_exists="replace", index=False)
+    conn.close()
 
 import streamlit as st
 from agent.graph import agent
